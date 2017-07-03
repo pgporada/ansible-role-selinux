@@ -1,0 +1,4 @@
+---
+- name: pgporada.repo-docker
+- name: pgporada.docker
+...

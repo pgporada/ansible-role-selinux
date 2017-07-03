@@ -1,0 +1,13 @@
+---
+- name: Configure SELinux
+  include: configure.yml
+  when: ansible_os_family == "RedHat"
+
+- name: CentOS specific things
+  include: setup-CentOS.yml
+  when: ansible_distribution == "CentOS"
+
+- name: Fedora specific things
+  include: setup-Fedora.yml
+  when: ansible_distribution == "Fedora"
+...

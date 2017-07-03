@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: Dan Rawlins and Phil Porada
+  description: Configures SELinux
+  company: MITallGuy
+  license: GPLv3
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - 23
+        - 24
+  categories:
+    - selinux
+    - security
+    - labeling
+
+dependencies: []
+...

@@ -1,0 +1,7 @@
+---
+# default variables and settings for selinux, and its policies
+selinux_policy: "targeted"
+selinux_state: "enforcing"
+selinux_packages: []
+selinux_modules: []
+...

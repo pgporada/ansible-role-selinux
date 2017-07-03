@@ -1,0 +1,27 @@
+---
+- name: Ensure that selinux modules are enabled
+  become: true
+  become_method: sudo
+  command: "semodule -v -e {{ item }}"
+  with_items: "{{ selinux_modules }}"
+
+- name: Ensure that selinux is permissive and not doing anything for us. You should rethink this decision.
+  become: true
+  become_method: sudo
+  command: "setenforce 0"
+  when:  selinux_state is defined and selinux_state == "permissive"
+
+- name: Ensure that selinux is in enforcing. Good on you for doing The Right Thing.
+  become: true
+  become_method: sudo
+  shell: "setenforce 1"
+  when:  selinux_state is defined and selinux_state == "enforcing"
+
+- name: Install extra SELinux packages
+  become: true
+  become_method: sudo
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ selinux_packages }}"
+...
