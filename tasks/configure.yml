@@ -9,13 +9,13 @@
   become: true
   become_method: sudo
   command: "setenforce 0"
-  when:  selinux_state is defined and selinux_state == "permissive"
+  when: selinux_state is defined and selinux_state == "permissive"
 
 - name: Ensure that selinux is in enforcing. Good on you for doing The Right Thing.
   become: true
   become_method: sudo
   shell: "setenforce 1"
-  when:  selinux_state is defined and selinux_state == "enforcing"
+  when: selinux_state is defined and selinux_state == "enforcing"
 
 - name: Install extra SELinux packages
   become: true
